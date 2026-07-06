@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Vivi 💕</title>
+    <style>
+        /* --- COLOR PALETTE & VARIABLES --- */
+        :root {
+            --wine-red: #58111A;
+            --deep-wine: #3a0a10;
+            --baby-pink: #FFD1DC;
+            --soft-pink: #FFF0F2;
+            --white: #FFFFFF;
+            /* Enhanced warm, light brownish vintage paper color */
+            --vintage-paper: #F2E6D0; 
+        }
+
+        /* --- GENERAL STYLES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(180deg, var(--soft-pink) 0%, var(--baby-pink) 50%, var(--wine-red) 100%);
+            color: var(--wine-red);
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        /* --- FLOATING HEARTS BACKGROUND --- */
+        .hearts-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .heart {
+            position: absolute;
+            color: var(--baby-pink);
+            font-size: 20px;
+            animation: float 6s linear infinite;
+            opacity: 0;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) scale(0); opacity: 0; }
+            50% { opacity: 0.8; }
+            100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
+        }
+
+        /* --- HERO HEADER SECTION --- */
+        header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, var(--wine-red), var(--deep-wine));
+            color: var(--baby-pink);
+            padding: 20px;
+            position: relative;
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-family: 'Georgia', serif;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        header h1 span {
+            color: var(--baby-pink);
+            text-shadow: 0 0 10px rgba(255, 209, 220, 0.6);
+        }
+
+        .typewriter {
+            font-size: 1.5rem;
+            border-right: 3px solid var(--baby-pink);
+            white-space: nowrap;
+            overflow: hidden;
+            width: 0;
+            animation: typing 3.5s steps(30, end) forwards, blink 0.75s step-end infinite;
+        }
+
+        @keyframes typing { from { width: 0 } to { width: 100% } }
+        @keyframes blink { from, to { border-color: transparent } 50% { border-color: var(--baby-pink); } }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            font-size: 1rem;
+            animation: bounce 2s infinite;
+            cursor: pointer;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        /* --- MAIN CONTAINER --- */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--wine-red);
+            margin-bottom: 40px;
+            font-family: 'Georgia', serif;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.5);
+        }
+
+        /* --- REASONS SECTION --- */
+        .reasons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-bottom: 100px;
+        }
+
+        .reason-card {
+            background-color: var(--wine-red);
+            color: var(--baby-pink);
+            padding: 40px 25px;
+            border-radius: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s, color 0.3s;
+            box-shadow: 0 8px 20px rgba(88, 17, 26, 0.2);
+        }
+
+        .reason-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .reason-card.revealed {
+            background-color: var(--baby-pink);
+            color: var(--wine-red);
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .reason-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+        }
+
+        .reason-card p {
+            display: none;
+            font-size: 1.15rem;
+            margin-top: 15px;
+            line-height: 1.5;
+        }
+
+        .reason-card.revealed p {
+            display: block;
+        }
+
+        /* --- VINTAGE LETTER SECTION --- */
+        .letter-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 40px;
+        }
+
+        .love-btn {
+            background-color: var(--wine-red);
+            color: var(--baby-pink);
+            font-size: 1.3rem;
+            padding: 15px 40px;
+            border: 2px solid var(--baby-pink);
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            font-family: 'Georgia', serif;
+        }
+
+        .love-btn:hover {
+            background-color: var(--baby-pink);
+            color: var(--wine-red);
+            border-color: var(--wine-red);
+            transform: scale(1.1);
+        }
+
+        .vintage-letter {
+            display: none;
+            max-width: 600px;
+            background-color: var(--vintage-paper);
+            color: #4A2E1B; /* Dark brown ink for high vintage contrast */
+            padding: 40px;
+            margin-top: 30px;
+            border-radius: 4px;
+            box-shadow: inset 0 0 40px rgba(101, 77, 46, 0.25), 0 15px 35px rgba(0,0,0,0.3);
+            font-family: 'Georgia', serif;
+            line-height: 1.8;
+            font-size: 1.15rem;
+            border-left: 5px solid #C4A484;
+            position: relative;
+            animation: openLetter 1s ease forwards;
+        }
+
+        @keyframes openLetter {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .letter-content {
+            white-space: pre-line;
+            font-style: italic;
+        }
+
+        .letter-seal {
+            text-align: center;
+            font-size: 2rem;
+            margin-top: 20px;
+            opacity: 0.8;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 40px;
+            background-color: var(--deep-wine);
+            color: var(--baby-pink);
+            font-size: 1.1rem;
+            margin-top: 100px;
+            width: 100%;
+        }
+
+        footer span {
+            color: #ff4d6d;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hearts-bg" id="heartsBg"></div>
+
+    <header>
+        <h1>For My Vivi <span>💖</span></h1>
+        <!-- Updated custom typewriter message -->
+        <div class="typewriter">I love you, a little something from me</div>
+        <div class="scroll-down" onclick="document.getElementById('content').scrollIntoView({behavior: 'smooth'});">
+            Scroll down for a little surprise ↓
+        </div>
+    </header>
+
+    <div class="container" id="content">
+        
+        <h2>Click to see why I love you...</h2>
+        <div class="reasons-grid">
+            <div class="reason-card" onclick="revealReason(this)">
+                <h3>Reason 01</h3>
+                <p>The way your presence instantly brightens even my absolute worst days.</p>
+            </div>
+            <div class="reason-card" onclick="revealReason(this)">
+                <h3>Reason 02</h3>
+                <p>How safe, protected, and completely at home I feel whenever you hold me.</p>
+            </div>
+            <div class="reason-card" onclick="revealReason(this)">
+                <h3>Reason 03</h3>
+                <p>Your passion, your drive, and the way your eyes light up when you're so happy.</p>
+            </div>
+        </div>
+
+        <hr style="border: 0; height: 1px; background: rgba(88, 17, 26, 0.2); margin: 60px 0;">
+
+        <div class="letter-section">
+            <button class="love-btn" id="btn" onclick="openLetter()">for my love</button>
+            
+            <div class="vintage-letter" id="loveLetter">
+                <div class="letter-content">
+                    hiee babii,
+
+                    This may not be much but i made a little something for you,we all have our bad days..i get it. I just want you to know i am and i'll be there for you always because we are in this together. You make my life so so special and I'll do anything to do the same just to see that tiny jolt of sparkle in your eyes and your smile,it lights up my entire world. Youre so much more than enough for me Ved,i love you.
+                </div>
+                <div class="letter-seal">❤️</div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Updated custom footer signature -->
+    <footer>
+        from naii <span>&hearts;</span>
+    </footer>
+
+    <script>
+        function revealReason(card) {
+            card.classList.toggle('revealed');
+        }
+
+        function openLetter() {
+            const letter = document.getElementById('loveLetter');
+            const button = document.getElementById('btn');
+            
+            letter.style.display = 'block';
+            button.style.display = 'none';
+            
+            setTimeout(() => {
+                letter.scrollIntoView({ behavior: 'smooth' });
+            }, 100);
+        }
+
+        const heartsContainer = document.getElementById('heartsBg');
+        const heartSymbols = ['❤️', '💖', '💕', '✨', '🌸'];
+
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerText = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+            heart.style.left = Math.random() * 100 + 'vw';
+            
+            const duration = Math.random() * 3 + 4;
+            heart.style.animationDuration = duration + 's';
+            heart.style.fontSize = Math.random() * 15 + 15 + 'px';
+
+            heartsContainer.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, duration * 1000);
+        }
+
+        setInterval(createHeart, 400);
+    </script>
+</body>
+</html>
